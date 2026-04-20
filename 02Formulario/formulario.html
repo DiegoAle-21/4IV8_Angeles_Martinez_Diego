@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de formulario y suu Validacion</title>
+    <script src="./JS/validarformulario.js"></script>
+    <link rel="stylesheet" href="./CSS/estilo.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <p>
+                Todos los formularios que estan en internet tienen metodos de programacion por defecto. Estos metodos nos sirven para poder hacer las acciones principales como son:
+                Acciones para poderse conectar con los servidores, a traves de las Arquitecturas Cliete Servidor.
+                Es que vamos a tener por defecto que todos los formularios utlizan en metodo GET, y el segundo metodo principal es POST, aunque existen otros metodos que se encargan del intercabio de información.
+                GET: Este metodo envia por medio de la URL toda la información del formulario a traves del navegador. Su función principal es obtener los datos del servicio; pero es el metodo mas vulnerable de todos, derivado a que se pueden generar inyeccciones de codigo.
+                POST: Este metodo se encarga de registrar una nueva entrada al sistema tambien utiliza la URL como envio por defecto pero su facultad es poder ocultarla, esto significa que los datos no son visibles para el usuario comun en el navegador.
+                <form action="formulario.html" method="POST" id="formulario" onsubmit="return validarformulario(this)">
+                    <label for="Nombre">
+                        Nombre:
+                        <br>
+                        <input type="text" name="nombre" id="nombre" placeholder="Por favor escriba aqui su nombre">
+                        <br>
+
+                    </label>
+                    <label for="Edad">
+                        Edad:
+                        <br>
+                        <input type="number" name="edad" id="edad" placeholder="Por favor escriba aqui su edad">
+                        <br>
+
+                    </label>
+                    <label for="Email">
+                        Email:
+                        <br>
+                        <input type="email" name="email" id="email" placeholder="Por favor escriba aqui su email">
+                        <br>
+                        <input type="submit" name="enviar" value="Enviar Registro">
+                        <br>
+                        <input type="reset" name="borrar" value="Borrar datos">
+                    </label>
+                </form>
+            </p>
+        </div>
+    </div>
+    
+</body>
+</html>

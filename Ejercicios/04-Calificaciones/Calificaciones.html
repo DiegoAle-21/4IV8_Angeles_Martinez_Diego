@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 4 - Calificación Final</title>
+    <link rel="stylesheet" href="./estilo.css">
+    <script src="./validacion.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Promedio de Algoritmos</h2>
+        <p>Cálculo basado en 55%, 30% y 15%</p>
+
+        <form name="formCalificaciones" method="POST" onsubmit="return validarNotas(this)">
+            <label>Tres Calificaciones Parciales (c1,c2,c3):</label>
+            <input type="text" name="parciales" placeholder="Ej: 8,9,10">
+
+            <label>Calificación Examen Final:</label>
+            <input type="text" name="examen" placeholder="0 - 10">
+
+            <label>Calificación Trabajo Final:</label>
+            <input type="text" name="trabajo" placeholder="0 - 10">
+
+            <input type="submit" value="Calcular Calificación Final">
+            <input type="reset" value="Limpiar Campos">
+        </form>
+
+        <div id="resultado" class="resultado">
+            Esperando calificaciones...
+        </div>
+    </div>
+
+</body>
+</html>

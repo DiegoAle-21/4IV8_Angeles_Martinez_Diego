@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 6 - Cálculo de Edad</title>
+    <link rel="stylesheet" href="estilo6.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Calculadora de Edad</h2>
+        <p>Introduce tu fecha de nacimiento (Método POST)</p>
+
+        <form name="formEdad" method="POST" onsubmit="return calcularEdad(this)">
+            <label for="fechaNacimiento">Fecha de nacimiento:</label>
+            <input type="date" name="fechaNacimiento" id="fechaNacimiento">
+
+            <input type="submit" value="Calcular Edad">
+            <input type="reset" value="Limpiar">
+        </form>
+
+        <div id="resultado" class="resultado">
+            Esperando fecha...
+        </div>
+    </div>
+
+    <script src="logica6.js"></script>
+</body>
+</html>

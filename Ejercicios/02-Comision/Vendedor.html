@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2 - Vendedor y Comisiones</title>
+    <link rel="stylesheet" href="./estilo.css">
+    <script src="./validacion.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Sistema de Comisiones</h2>
+        <p>Sueldo Base + 10% de ventas</p>
+
+        <form name="formVendedor" method="POST" onsubmit="return validarVendedor(this)">
+            <label for="nombre">Nombre del Vendedor:</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Mínimo 3 letras">
+
+            <label for="sueldo">Sueldo Base ($):</label>
+            <input type="text" name="sueldo" id="sueldo" placeholder="Ej: 5000">
+
+            <label for="ventas">Monto de las 3 ventas (venta1,venta2,venta3):</label>
+            <input type="text" name="ventas" id="ventas" placeholder="Ej: 1500,2000,1200">
+
+            <input type="submit" value="Calcular Total">
+            <input type="reset" value="Limpiar">
+        </form>
+
+        <div id="resultado" class="resultado">
+            Esperando información...
+        </div>
+    </div>
+
+
+</body>
+</html>

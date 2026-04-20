@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3 - Descuento en Tienda</title>
+    <link rel="stylesheet" href="./estilo.css">
+    <script src="./validacion.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Cálculo de Descuento</h2>
+        <p>Ahorra el 15% en tu compra total</p>
+
+        <form name="formTienda" method="POST" onsubmit="return validarCompra(this)">
+            <label for="totalCompra">Total de la compra ($):</label>
+            <input type="text" name="totalCompra" id="totalCompra" placeholder="Ej: 1200">
+
+            <input type="submit" value="Aplicar Descuento">
+            <input type="reset" value="Borrar">
+        </form>
+
+        <div id="resultado" class="resultado">
+            Esperando monto de compra...
+        </div>
+    </div>
+
+
+</body>
+</html>

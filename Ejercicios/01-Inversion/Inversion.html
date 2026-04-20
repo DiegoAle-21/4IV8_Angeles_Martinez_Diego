@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1 - Inversión Bancaria</title>
+    <link rel="stylesheet" href="./estilo.css">
+    <script src="./validacion.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Inversión</h2>
+
+        <form name="formularioInv" method="POST" onsubmit="return validarYCalcular(this)">
+            <label for="capital">Capital a invertir (Mínimo $1,000):</label>
+            <input type="text" name="capital" id="capital" placeholder="Ej: 5000">
+
+            <label for="meses">Plazo de la inversión (1-12 meses):</label>
+            <input type="text" name="meses" id="meses" placeholder="Ej: 6">
+
+            <input type="submit" value="Calcular Ganancia">
+            <input type="reset" value="Borrar Datos">
+        </form>
+
+        <div id="resultado" class="resultado">
+            Esperando datos...
+        </div>
+    </div>
+
+    
+</body>
+</html>

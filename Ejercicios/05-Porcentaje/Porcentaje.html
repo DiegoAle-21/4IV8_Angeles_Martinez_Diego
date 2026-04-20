@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 5 - Porcentaje de Estudiantes</title>
+    <link rel="stylesheet" href="./estilo.css">
+    <script src="./validacion.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Porcentaje de Grupo</h2>
+        <p>Cálculo de hombres y mujeres</p>
+
+        <form name="formPorcentajes" method="POST" onsubmit="return validarGrupo(this)">
+            <label for="hombres">Cantidad de hombres:</label>
+            <input type="text" name="hombres" id="hombres" placeholder="Ej: 15">
+
+            <label for="mujeres">Cantidad de mujeres:</label>
+            <input type="text" name="mujeres" id="mujeres" placeholder="Ej: 20">
+
+            <input type="submit" value="Calcular Porcentajes">
+            <input type="reset" value="Reiniciar">
+        </form>
+
+        <div id="resultado" class="resultado">
+            Esperando datos del grupo...
+        </div>
+    </div>
+
+    
+</body>
+</html>
