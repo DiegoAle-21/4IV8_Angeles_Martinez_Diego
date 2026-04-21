@@ -1,0 +1,93 @@
+:root {
+    --vino-oscuro: #541935;
+    --vino-medio: #8E2B59;
+    --ocre-dorado: #B98B53;
+    --ocre-tierra: #7E5F39;
+    --fondo: #fcfaf8;
+}
+
+body {
+    background-color: var(--fondo);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.menu-container {
+    width: 90%;
+    max-width: 950px;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    color: var(--vino-oscuro);
+    font-size: 2.2rem;
+    border-bottom: 3px solid var(--ocre-dorado);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+header p {
+    color: var(--ocre-tierra);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.grid-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    text-decoration: none;
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 5px solid var(--vino-oscuro);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    display: block;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    border-left-color: var(--ocre-dorado);
+    box-shadow: 0 8px 15px rgba(142, 43, 89, 0.15);
+}
+
+.badge {
+    background-color: var(--ocre-dorado);
+    color: white;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: var(--vino-oscuro);
+    margin: 0 0 10px 0;
+}
+
+.card p {
+    color: var(--ocre-tierra);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .grid-menu { grid-template-columns: 1fr; }
+}
