@@ -75,3 +75,16 @@ input[type="submit"]:hover { background-color: #1565c0; }
     border-radius: 3px;
     line-height: 1.5;
 }
+
+
+.boton-enlace {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #7E5F39;
+    color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-family: 'Pridi', serif;
+    box-shadow: 4px 4px 0px #541935;
+    transition: 0.3s;
+}

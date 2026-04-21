@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Pridi:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Pridi', serif;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.descripcion {
+    color: #61492C; /* Ocre oscuro de tu paleta */
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.menu-contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre botones */
+    width: 100%;
+    max-width: 300px;
+}
+
+.boton-enlace {
+    display: block;
+    text-decoration: none; /* QUITA EL AZUL Y SUBRAYADO */
+    background-color: #8E2B59; /* Vino medio de tu imagen */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 4px 4px 0px #7E5F39; /* Sombra ocre tierra */
+    transition: all 0.3s ease;
+}
+
+.boton-enlace:hover {
+    background-color: #AC336C; /* Rosa/Vino claro */
+    box-shadow: 4px 4px 0px #B98B53; /* Sombra ocre dorado */
+    transform: translate(-2px, -2px);
+}
