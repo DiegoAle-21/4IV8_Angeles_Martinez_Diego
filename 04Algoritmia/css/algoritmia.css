@@ -1,0 +1,128 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Pridi:wght@300;400;600&display=swap');
+
+:root {
+    --vino: #630E2B;
+    --vino-light: #841638; 
+    --ocre: #B38E5D;
+    --ocre-light: #D4AF7A;
+    --blanco: #F4F4F4;
+    --gris-oscuro: #2D2D2D;
+}
+
+body {
+    background-color: var(--blanco);
+    font-family: 'Pridi', serif;
+    color: var(--gris-oscuro);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid var(--vino);
+}
+
+.problema-titulo {
+    color: var(--vino);
+    border-bottom: 2px solid var(--ocre);
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.problema-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Inputs y Tablas */
+.problema-input {
+    padding: 10px;
+    border: 1px solid var(--ocre);
+    border-radius: 4px;
+    font-family: 'Pridi', serif;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.problema-input:focus {
+    border: 2px solid var(--vino);
+}
+
+.problema-table {
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+.problema-table th {
+    background-color: var(--vino);
+    color: white;
+    padding: 8px;
+}
+
+.problema-table td {
+    border: 1px solid var(--ocre);
+    padding: 5px;
+    text-align: center;
+}
+
+.problema-button {
+    background-color: var(--vino);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Pridi', serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.2s;
+    align-self: center;
+}
+
+.problema-button:hover {
+    background-color: var(--vino-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.problema-button:active {
+    transform: translateY(0);
+}
+
+
+.problema-output {
+    background-color: #f9f9f9;
+    border: 1px dashed var(--ocre);
+    padding: 15px;
+    margin-top: 1rem;
+    border-radius: 4px;
+    color: var(--vino);
+    font-weight: 600;
+    min-height: 1.2rem;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+
+.tablas {
+    background-color: #fffaf0; /* Un toque crema muy ligero */
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--ocre-light);
+}
+
+
