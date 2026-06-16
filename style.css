@@ -43,6 +43,85 @@ body {
     transform: translate(-2px, -2px);
 }
 
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.boton-enlace {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    background-color: #8E2B59;
+    color: white;
+    box-shadow: 0 6px 0 #7E5F39;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+.boton-enlace:hover {
+    transform: translate(-2px, -2px);
+}
+
+.Ejercicio1 {
+    background-color: #FFF8F0;
+    border: 1px solid #E0C6B8;
+    border-radius: 16px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+    padding: 28px;
+    width: 100%;
+    max-width: 760px;
+    margin: 24px auto;
+}
+
+.Ejercicio1 label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #4A3A34;
+}
+
+.container-table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table td {
+    padding: 12px 10px;
+    border: 1px solid #E0C6B8;
+    vertical-align: middle;
+}
+
+.table input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #D8B9A5;
+    font-size: 1rem;
+}
+
+.table input[readonly] {
+    background-color: #F7F1ED;
+}
+
+.Ejercicio1 .boton-enlace {
+    display: inline-block;
+    margin-top: 18px;
+}
+
 .portada,
 .objetivo,
 .aprendizaje,
