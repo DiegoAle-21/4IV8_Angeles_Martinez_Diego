@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Hobby - Sistema de Música con Express y MySQL</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Sistema de Control de Música</h1>
+        <p>Proyecto Escuchar Música</p>
+        <nav class="tabs">
+            <button class="tab active" onclick="cambiarSeccion('usuarios')">Usuarios</button>
+            <button class="tab" onclick="cambiarSeccion('artistas')">Artistas</button>
+            <button class="tab" onclick="cambiarSeccion('canciones')">Canciones</button>
+            <button class="tab" onclick="cambiarSeccion('historial')">Historial</button>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="info-api">
+            <h3>Estado de la API</h3>
+            <div class="api-status">
+                <span id="api-metodo" class="badge">-</span>
+                <span id="api-url" class="api-url">-</span>
+                <span id="api-codigo" class="badge badge-neutral">-</span>
+            </div>
+        </section>
+
+        <div id="seccion-usuarios" class="seccion">
+            <section class="formulario-section">
+                <h2 id="form-titulo-usuario">Agregar Usuario</h2>
+                <form id="form-usuario" novalidate>
+                    <input type="hidden" id="usuario-id">
+                    <div class="campos-grid">
+                        <div class="campo">
+                            <label for="usuario-nombre">Nombre:</label>
+                            <input type="text" id="usuario-nombre" placeholder="Ej: Diego Angeles" maxlength="100" required>
+                            <span class="error" id="error-usuario-nombre"></span>
+                        </div>
+                        <div class="campo">
+                            <label for="usuario-email">Email:</label>
+                            <input type="email" id="usuario-email" placeholder="Ej: diego@email.com" maxlength="150" required>
+                            <span class="error" id="error-usuario-email"></span>
+                        </div>
+                    </div>
+                    <div class="botones">
+                        <button type="submit" id="btn-guardar-usuario">Guardar</button>
+                        <button type="button" id="btn-cancelar-usuario" class="btn-secundario" style="display:none;">Cancelar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="tabla-section">
+                <h2>Usuarios / Oyentes <span id="contador-usuarios" class="badge badge-neutral"></span></h2>
+                <p id="carga-usuarios">Cargando...</p>
+                <table id="tabla-usuarios" style="display:none;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-usuarios"></tbody>
+                </table>
+            </section>
+        </div>
+
+        <div id="seccion-artistas" class="seccion" style="display:none;">
+            <section class="formulario-section">
+                <h2 id="form-titulo-artista">Agregar Artista / Banda</h2>
+                <form id="form-artista" novalidate>
+                    <input type="hidden" id="artista-id">
+                    <div class="campos-grid">
+                        <div class="campo">
+                            <label for="artista-nombre">Nombre del Artista:</label>
+                            <input type="text" id="artista-nombre" placeholder="Ej: Daft Punk, Travis Scott" maxlength="100" required>
+                            <span class="error" id="error-artista-nombre"></span>
+                        </div>
+                        <div class="campo">
+                            <label for="artista-genero">Género Musical:</label>
+                            <input type="text" id="artista-genero" placeholder="Ej: Rock, Pop, Synthwave" maxlength="50" required>
+                            <span class="error" id="error-artista-genero"></span>
+                        </div>
+                    </div>
+                    <div class="botones">
+                        <button type="submit" id="btn-guardar-artista">Guardar</button>
+                        <button type="button" id="btn-cancelar-artista" class="btn-secundario" style="display:none;">Cancelar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="tabla-section">
+                <h2>Artistas <span id="contador-artistas" class="badge badge-neutral"></span></h2>
+                <p id="carga-artistas">Cargando...</p>
+                <table id="tabla-artistas" style="display:none;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Género</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-artistas"></tbody>
+                </table>
+            </section>
+        </div>
+
+        <div id="seccion-canciones" class="seccion" style="display:none;">
+            <section class="formulario-section">
+                <h2 id="form-titulo-cancion">Agregar Canción</h2>
+                <form id="form-cancion" novalidate>
+                    <input type="hidden" id="cancion-id">
+                    <div class="campos-grid campos-grid-3">
+                        <div class="campo">
+                            <label for="cancion-titulo">Título de la Canción:</label>
+                            <input type="text" id="cancion-titulo" placeholder="Ej: Starboy" maxlength="150" required>
+                            <span class="error" id="error-cancion-titulo"></span>
+                        </div>
+                        <div class="campo">
+                            <label for="cancion-duracion">Duración (MM:SS):</label>
+                            <input type="text" id="cancion-duracion" placeholder="Ej: 3:50" maxlength="10" required>
+                            <span class="error" id="error-cancion-duracion"></span>
+                        </div>
+                        <div class="campo">
+                            <label for="cancion-artista">Artista Asociado:</label>
+                            <select id="cancion-artista" required>
+                                <option value="">-- Seleccionar Artista --</option>
+                            </select>
+                            <span class="error" id="error-cancion-artista"></span>
+                        </div>
+                    </div>
+                    <div class="botones">
+                        <button type="submit" id="btn-guardar-cancion">Guardar</button>
+                        <button type="button" id="btn-cancelar-cancion" class="btn-secundario" style="display:none;">Cancelar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="tabla-section">
+                <h2>Canciones Registradas <span id="contador-canciones" class="badge badge-neutral"></span></h2>
+                <p id="carga-canciones">Cargando...</p>
+                <table id="tabla-canciones" style="display:none;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Duración</th>
+                            <th>Artista</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-canciones"></tbody>
+                </table>
+            </section>
+        </div>
+
+        <div id="seccion-historial" class="seccion" style="display:none;">
+            <section class="formulario-section">
+                <h2>Registrar Reproducción de Canción</h2>
+                <form id="form-historial" novalidate>
+                    <div class="campos-grid">
+                        <div class="campo">
+                            <label for="historial-usuario">Usuario / Oyente:</label>
+                            <select id="historial-usuario" required>
+                                <option value="">-- Seleccionar Usuario --</option>
+                            </select>
+                            <span class="error" id="error-historial-usuario"></span>
+                        </div>
+                        <div class="campo">
+                            <label for="historial-cancion">Canción a Registrar:</label>
+                            <select id="historial-cancion" required>
+                                <option value="">-- Seleccionar Canción --</option>
+                            </select>
+                            <span class="error" id="error-historial-cancion"></span>
+                        </div>
+                    </div>
+                    <div class="botones">
+                        <button type="submit" id="btn-registrar-historial">Registrar Reproducción 🎵</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="tabla-section">
+                <h2>Historial de Canciones Escuchadas <span id="contador-historial" class="badge badge-neutral"></span></h2>
+                <p id="carga-historial">Cargando...</p>
+                <table id="tabla-historial" style="display:none;">
+                    <thead>
+                        <tr>
+                            <th>ID Transacción</th>
+                            <th>Usuario</th>
+                            <th>Canción</th>
+                            <th>Artista</th>
+                            <th>Duración</th>
+                            <th>Fecha/Hora de Escucha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-historial"></tbody>
+                </table>
+            </section>
+        </div>
+
+        <div id="notificacion" class="notificacion" style="display:none;"></div>
+
+    </main>
+
+    <footer>
+        <p>PNT — Proyecto Hobbies: Gestión de Música con Express y MySQL</p>
+    </footer>
+
+    <script src="./js/app.js"></script>
+    <a href="../../index.html" class="boton-enlace">Volver a página principal</a>
+</body>
+</html>

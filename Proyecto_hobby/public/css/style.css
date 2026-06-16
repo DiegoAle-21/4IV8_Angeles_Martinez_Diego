@@ -1,0 +1,328 @@
+:root {
+    /* Nueva paleta musical: Modo oscuro/elegante con acentos morados/neón */
+    --color-primario: #a855f7;       /* Morado vibrante */
+    --color-primario-hover: #9333ea; /* Morado oscuro */
+    --color-peligro: #ef4444;
+    --color-peligro-hover: #dc2626;
+    --color-exito: #10b981;          /* Verde Spotify/Music */
+    --color-fondo: #0f172a;          /* Fondo oscuro profundo */
+    --color-tarjeta: #1e293b;        /* Gris azulado oscuro para secciones */
+    --color-borde: #334155;
+    --color-texto: #f8fafc;          /* Texto claro para contraste */
+    --color-texto-claro: #94a3b8;
+    --radio-borde: 12px;             /* Bordes ligeramente más redondeados y modernos */
+    --sombra: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* ---- Header con pestañas ---- */
+header {
+    background: linear-gradient(135deg, #1e1b4b, #311042); /* Degradado estilo estudio musical */
+    color: white;
+    padding: 2rem 1.5rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+header h1 { 
+    font-size: 1.8rem; 
+    margin-bottom: 0.35rem; 
+    letter-spacing: -0.02em;
+}
+header p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 1.5rem; }
+
+/* Pestañas de navegación */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.tab {
+    padding: 0.75rem 1.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-texto-claro);
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border-radius: 8px 8px 0 0;
+}
+
+.tab:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.tab.active {
+    background: var(--color-tarjeta);
+    color: var(--color-primario);
+    border-top: 3px solid var(--color-primario);
+}
+
+/* ---- Layout ---- */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-texto-claro);
+    font-size: 0.85rem;
+    margin-top: 3rem;
+    border-top: 1px solid var(--color-borde);
+}
+
+/* ---- Secciones ---- */
+.formulario-section,
+.tabla-section,
+.info-api {
+    background: var(--color-tarjeta);
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.formulario-section h2,
+.tabla-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #f1f5f9;
+}
+
+/* Panel API */
+.info-api { 
+    padding: 1rem 1.75rem; 
+    background: #0f172a;
+    border: 1px solid var(--color-borde);
+}
+.info-api h3 {
+    font-size: 0.75rem;
+    color: var(--color-texto-claro);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+}
+
+.api-status {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Consolas', monospace;
+    font-size: 0.85rem;
+}
+
+.api-url { color: #38bdf8; flex: 1; } /* Color cian para resaltar las URLs */
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.badge-get { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+.badge-post { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+.badge-put { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+.badge-delete { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+.badge-neutral { background: #334155; color: #cbd5e1; }
+.badge-success { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+.badge-error { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+
+/* ---- Grid de campos del formulario ---- */
+.campos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.campos-grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* ---- Formulario ---- */
+.campo { margin-bottom: 0.75rem; }
+
+.campo label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    background: #0f172a;
+    color: white;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25);
+}
+
+.campo input.input-error,
+.campo select.input-error {
+    border-color: var(--color-peligro);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.error {
+    display: block;
+    color: #f87171;
+    font-size: 0.75rem;
+    min-height: 1.1rem;
+    margin-top: 0.25rem;
+}
+
+/* ---- Tabla ---- */
+table { width: 100%; border-collapse: collapse; }
+thead { background-color: #0f172a; }
+
+th, td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-borde);
+    font-size: 0.9rem;
+}
+
+th {
+    font-weight: 600;
+    color: var(--color-texto-claro);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+}
+
+tbody tr { transition: background-color 0.15s ease; }
+tbody tr:hover { background-color: rgba(255, 255, 255, 0.02); }
+
+/* ---- Botones ---- */
+.botones { display: flex; gap: 0.75rem; margin-top: 1rem; }
+
+button {
+    padding: 0.65rem 1.4rem;
+    border: none;
+    border-radius: var(--radio-borde);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+/* IDs actualizados para cubrir todos los botones del nuevo CRUD */
+#btn-guardar-usuario,
+#btn-guardar-artista,
+#btn-guardar-cancion,
+#btn-registrar-historial {
+    background-color: var(--color-primario);
+    color: white;
+}
+
+#btn-guardar-usuario:hover,
+#btn-guardar-artista:hover,
+#btn-guardar-cancion:hover,
+#btn-registrar-historial:hover {
+    background-color: var(--color-primario-hover);
+    transform: translateY(-1px);
+}
+
+.btn-secundario { background-color: #475569; color: white; }
+.btn-secundario:hover { background-color: #334155; }
+
+.btn-editar {
+    background-color: rgba(168, 85, 247, 0.15);
+    color: #c084fc;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    margin-right: 0.25rem;
+}
+.btn-editar:hover { 
+    background-color: var(--color-primario);
+    color: white; 
+}
+
+.btn-eliminar {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+}
+.btn-eliminar:hover { 
+    background-color: var(--color-peligro);
+    color: white; 
+}
+
+.btn-ver {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    margin-right: 0.25rem;
+}
+.btn-ver:hover { 
+    background-color: var(--color-exito);
+    color: white; 
+}
+
+/* ---- Notificaciones ---- */
+.notificacion {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radio-borde);
+    color: white;
+    font-weight: 600;
+    z-index: 1000;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.notificacion.exito { background-color: var(--color-exito); }
+.notificacion.error { background-color: var(--color-peligro); }
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(100%) scale(0.9); }
+    to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 700px) {
+    .campos-grid,
+    .campos-grid-3 {
+        grid-template-columns: 1fr;
+    }
+    .tabla-section { overflow-x: auto; }
+    .botones { flex-direction: column; }
+    .tabs { flex-wrap: wrap; }
+    .tab { flex: 1; min-width: 100px; border-radius: 4px; }
+}

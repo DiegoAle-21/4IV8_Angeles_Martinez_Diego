@@ -42,3 +42,58 @@ body {
     box-shadow: 4px 4px 0px #B98B53; /* Sombra ocre dorado */
     transform: translate(-2px, -2px);
 }
+
+.portada,
+.objetivo,
+.aprendizaje,
+.menu-contenedor {
+    background-color: #FFF8F0;
+    border: 1px solid #E0C6B8;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 24px;
+}
+
+.portada h1,
+.objetivo h2,
+.aprendizaje h2,
+.menu-contenedor h2 {
+    color: #8E2B59;
+    margin-bottom: 16px;
+}
+
+.portada p,
+.objetivo p,
+.aprendizaje ul {
+    color: #4A3A34;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.aprendizaje ul {
+    margin-top: 12px;
+    padding-left: 20px;
+}
+
+.aprendizaje li {
+    margin-bottom: 10px;
+}
+
+.menu-contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 24px 16px;
+    }
+
+    .boton-enlace {
+        padding: 14px 12px;
+    }
+}
